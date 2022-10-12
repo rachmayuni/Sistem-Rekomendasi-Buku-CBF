@@ -1,5 +1,5 @@
 ﻿# Laporan Proyek 2 Machine Learning - Rachma Yuni Andari
-## Sistem Rekomendasi
+## Sistem Rekomendasi Buku - CBF
 
 
 # Domain Proyek
