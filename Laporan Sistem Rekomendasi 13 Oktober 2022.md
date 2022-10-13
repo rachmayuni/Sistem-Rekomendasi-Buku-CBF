@@ -123,6 +123,8 @@ Sehingga, metode ini mengarah pada hasil rekomendasi buku yang baik kepada pengg
 
 Digunakan **cosine_similarity** untuk membandingkan kedua dokumen atau menemukan kesamaan di antara kedua komponen matrix.
 Konsep kerja dari cosine_similarity adalah menemukan kesamaan kosinus. Nilainya antara -1 dan 1. Jika nilainya 1 atau mendekati 1 maka kedua dokumen tersebut sama dan sebaliknya.
+![190915969-92ac61ae-b1ac-44d9-9ec1-92f778c19602](https://user-images.githubusercontent.com/107310486/195525575-f9db3136-3e4f-4c1f-8300-03a3522d767c.png)
+
 
 Pada pendefinisian fungsi rekomendasi, langkah yang diimplementasikan:
 
@@ -131,8 +133,14 @@ Pada pendefinisian fungsi rekomendasi, langkah yang diimplementasikan:
 - Ubah menjadi menjadi daftar tupel di mana elemen pertama adalah posisi dan elemen kedua adalah skor kesamaan
 
 
-## Hasil
+## Result
+Fungsi get_recommendations dibuat untuk menemukan rekomendasi buku menggunakan similarity yang telah sebelumnya didefinisikan.
+
 Hasil dari proyek ini, apabila preferensi kita adalah kategori "Science", dengan kata kunci judul buku "The Dragons of Eden: Speculations on the Evolution of Human Intelligence", maka yang direkomendasikan selanjutnya adalah judul yang ber-kategori "Science" pula.
+
+Sistem telah berhasil merekomendasikan top 9 buku yang mirip dengan 'Their First Time in the Movies (With DVD & VHS)', Jadi, jika pengguna menyukai buku kategori **'Peforming Arts'**, maka sistem dapat merekomendasikan kategori 'Peforming Arts' lainnya.
+
+![peforming arts](https://user-images.githubusercontent.com/107310486/195537330-25600c63-b025-4781-a44b-b3343e5fb6fb.png)
 
 
 ## Evaluation
