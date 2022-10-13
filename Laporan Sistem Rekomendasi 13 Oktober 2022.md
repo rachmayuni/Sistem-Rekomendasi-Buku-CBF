@@ -1,5 +1,5 @@
-﻿# Laporan Proyek 2 Machine Learning - Rachma Yuni Andari
-## Sistem Rekomendasi Buku - CBF
+# Laporan Proyek 2 Machine Learning - Rachma Yuni Andari
+## Sistem Rekomendasi Buku CBF
 
 
 # Domain Proyek
@@ -10,7 +10,7 @@ Semakin berkembangnya internet yang menawarkan banyak kemudahan, maka semakin ko
 
 
 ## Problem Statements
-Dari beberapa algoritma sistem rekomendasi, algoritma yang digunakan pada proyek ini adalah metode ***content based filtering.***
+Dari beberapa algoritma dari sistem rekomendasi, bagaimana penerapan metode ***content based filtering.*** yang digunakan pada proyek Sistem Rekomendasi Buku ini?
 
 ## Goals
 Mempermudah users dalam menemukan buku yang sesuai preferensi / minatnya. Proyek ini menyajikan bagaimana pendekatan model algoritma machine learning untuk merekomendasikan buku yang relevan pada user.
@@ -20,6 +20,8 @@ Goal dari sistem rekomendasi jenis ini adalah menghasilkan preferensi pengguna b
 
 
 # Data Understanding
+![dataset](https://user-images.githubusercontent.com/107310486/195502039-d65d1db0-6366-48aa-b6ac-dde0c9a1cab6.png)
+
 
 Pertama, import semua library yang dibutuhkan. Data yang digunakan dalam proyek ini adalah **# Book-Crossing: User review ratings** yang diunduh dari [Kaggle](https://www.kaggle.com/datasets/ruchi798/bookcrossing-dataset). Pada proyek kali ini, tidak hanya satu dataset yang digunakan. Ada tambahan dari dataset file yang terpisah. Jadi total dataset yang digunakan di proyek ini ada 2, yaitu *data_book.csv* dan *ratings_book.csv*. Dataset ini memiliki total 1juta 31ribu lebih rows
 
@@ -99,13 +101,17 @@ Pada tahap ini, terjadi penyatuan dataset *data_book.csv* dan *ratings_book.csv*
 
 Pada bagian ini, akan dilakukan empat tahap persiapan data, yaitu:
 - Menghapus fitur yang tidak perlu
-- Membersihkan fitur kategori
-- Menghapus kategori duplikat
+- Menghapus duplikat kolom
 - Menggabungkan dataset
 
 **Menghapus fitur yang tidak diperlukan**
-Pada tahap ini, kita melakukan penghapusan semua kolom kecuali kolom-kolom yang penting, seperti: judul buku, author buku, publisher, dan kategori.
+Pada tahap ini, kita melakukan penghapusan semua kolom kecuali kolom-kolom yang penting, seperti: judul buku, isbn, author buku, publisher, dan kategori. menggunakan perintah **drop**.
 
+**Menghapus duplikat kolom**
+Pada tahap ini, variabel data_bersih2 yang telah diproses dengan **drop_duplicates** sehingga menghasilkan data yang bersih, disimpan di variabel data_bersih3.
+
+**Menggabungkan dataset*
+Pada tahap ini, variabel data_bersih2 yang telah diproses dengan **drop_duplicates** sehingga menghasilkan data yang bersih, disimpan di variabel data_bersih3.
 
 ## Modeling
 Dalam proyek ini digunakan satu algoritma untuk mengembangkan model sistem rekomendasi. Model yang digunakan adalah *content based filtering* memakai **TfidVectorizer**.
@@ -114,6 +120,15 @@ Dalam proyek ini digunakan satu algoritma untuk mengembangkan model sistem rekom
 Content based filtering ini merekomendasikan item yang mirip dengan preferensi pengguna yang telah dibaca sebelumnya berdasarkan isi ringkasan buku dari catatan sejarah masa lalu pembeli.
 Model dari metode ini juga membentuk untuk menggabungkan pendapat user yang lain melalui rating yang diberikan untuk membuat prediksi yang akurat / dipersonalisasi. 
 Sehingga, metode ini mengarah pada hasil rekomendasi buku yang baik kepada pengguna berdasarkan preferensi mereka.
+
+Digunakan **cosine_similarity** untuk membandingkan kedua dokumen atau menemukan kesamaan di antara kedua komponen matrix.
+Konsep kerja dari cosine_similarity adalah menemukan kesamaan kosinus. Nilainya antara -1 dan 1. Jika nilainya 1 atau mendekati 1 maka kedua dokumen tersebut sama dan sebaliknya.
+
+Pada pendefinisian fungsi rekomendasi, langkah yang diimplementasikan:
+
+- Dapatkan indeks buku yang diberikan judulnya
+- Dapatkan daftar skor cosinus imilarity
+- Ubah menjadi menjadi daftar tupel di mana elemen pertama adalah posisi dan elemen kedua adalah skor kesamaan
 
 
 ## Hasil
@@ -138,14 +153,13 @@ Relevan di sana mengacu pada ketentuan sebagai berikut:
 - Apabila rating > 5 disebut sebagai relevan
 - Apabila rating < 5 disebut sebagai tidak relevan
 
-Dari proyek ini, di dapatkan 50% presisi dari model rekomendasi berdasarkan algoritma content based filtering.
 
 
 ## References
-1. A. S. Tewari, A. Kumar and A. G. Barman, "Book recommendation system based on combine features of content based filtering, collaborative filtering and association rule mining," 2014 IEEE International Advance Computing Conference (IACC), 2014, pp. 500-503, doi: 10.1109/IAdCC.2014.6779375.
+[1] A. S. Tewari, A. Kumar and A. G. Barman, "Book recommendation system based on combine features of content based filtering, collaborative filtering and association rule mining," 2014 IEEE International Advance Computing Conference (IACC), 2014, pp. 500-503, doi: 10.1109/IAdCC.2014.6779375.
 
-2. P. Mathew, B. Kuriakose and V. Hegde, "Book Recommendation System through content based and collaborative filtering method," 2016 International Conference on Data Mining and Advanced Computing (SAPIENCE), 2016, pp. 47-52, doi: 10.1109/SAPIENCE.2016.7684166.
+[2] P. Mathew, B. Kuriakose and V. Hegde, "Book Recommendation System through content based and collaborative filtering method," 2016 International Conference on Data Mining and Advanced Computing (SAPIENCE), 2016, pp. 47-52, doi: 10.1109/SAPIENCE.2016.7684166.
 
-3. [Online]. Available: https://www.dicoding.com/academies/319/tutorials/17116. [Accessed: 11- Oct- 2022]
+[3] [Online]. Available: https://www.dicoding.com/academies/319/tutorials/17116. [Accessed: 11- Oct- 2022]
 
-4. Naaz, S. (2018). Machine Learning Algorithm to Predict Survivability in Breast Cancer Patients. _International Journal on Computer Science and Engineering_, _10_(4), 97-101.
+[4] Naaz, S. (2018). Machine Learning Algorithm to Predict Survivability in Breast Cancer Patients. _International Journal on Computer Science and Engineering_, _10_(4), 97-101.
